@@ -1,0 +1,28 @@
+#Tomcat
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 30
+    min-spare-threads: 10
+  port: 8000
+
+spring:
+  application:
+    name: sscp-kafka
+
+  #kafka
+  kafka:
+    #    bootstrap-servers: 47.52.25.180:9092
+    bootstrap-servers: 47.107.113.91:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      linger: 1
+    consumer:
+      enable-auto-commit: false
+      auto-commit-interval: 100
+      group-id: kafka_group
+      session-timeout: 20000
+      auto-offset-reset: latest
+      concurrency: 10
